@@ -2,6 +2,10 @@
 
 This is a basic template for making a Jinx comic, based on best practices I've developed (and continue to develop) from making Jinx comics.
 
+### See Also
+* [Jinx](https://github.com/derektb/jinx), a framework for building interactive comics in Twine.  Documentation can be found there.
+* [Wizard Town](http://www.wizard.town), the place where I post comics I have made with Jinx.
+
 ## Building Comics
 
 The comic's data are packaged from `/src` into a single `dist/index.html` file by [Tweego](https://www.motoslave.net/tweego/), a command-line utility for building Twine stories from files.
