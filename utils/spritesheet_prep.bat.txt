@@ -1,0 +1,1 @@
+magick montage -geometry 300x300 -tile 3x3 -background none *.png ../spritesheet.png

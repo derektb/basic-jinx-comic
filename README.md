@@ -47,6 +47,8 @@ This template uses the following file structure:
   /styles
     main.css
   panels.tw      # Contains a basic Jinx panel definition
+/utils
+  # Contains useful scripts for Jinx development
 /dist
   # Builds go in here.
 ```
@@ -66,3 +68,30 @@ Keep in mind that `/dist` is not cleaned of previous builds, so if you're renami
 Tweego will build `/dist/index.html` from everything in the `/src` directory.
 
 One thing to keep in mind: Tweego compiles scripts and styles from files in alphabetical order.  Twine will run all user scripts compiled in this way at runtime, in order.  This is why `_setup.js` is prefixed with an underscore; to make sure it gets run first.  You may want to set up naming or numbering conventions if you have files you need compiled in a specific order.
+
+### Utils
+
+Contains useful scripts for Jinx development.  Stored as .txt files because they are not intended to be run as-is, but to be copy-pasted into command line tools and possibly configured for implementation.
+
+#### Export Asset Layers
+
+This is a Python script to be copied and pasted into the GIMP Python console.  It requires the Export Layers plugin for GIMP, which can be found [here](https://khalim19.github.io/gimp-plugin-export-layers/).
+
+This will export all layers (of a .PSD, presumably) as images, all with the dimensions of the full canvas.  Images inside folders will also be exported.  The images are saved with the same name as the layer (so make sure you layers have unique names!) in an output folder of the same name as the file you're exporting from.
+
+The intended use case is to have all your panels as individual .PSD source files within the page folder, bearing the name of their panel definition.  Their layers are exported into a sub-folder named after the definition.
+
+#### Spritsheet Prep
+
+This is an ImageMagick script for preparing a spritesheet from a collection of PNGs using the `montage` command.  A breakdown of how to use it:
+
+```
+magick montage
+  -geometry 300x300     # The dimensions (in pixels) of a frame
+  -tile 3x3             # The dimensions (in frames) of the spritesheet
+  -background none      # Required to retain background transparency
+  *.png                 # Source files
+  ../spritesheet.png    # Output file
+```
+
+This command is intended to be used inside a folder containing all frames of the spritesheet to be made.  The output file will be written up to the parent folder, so as to keep the command idempotent within the frames folder.

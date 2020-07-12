@@ -1,0 +1,20 @@
+#  copy and paste into gimp python console to
+#  expand all the existing layers in the
+#  topmost open gimp image
+
+def expandLayers(layers):
+   for layer in layers:
+     if hasattr(layer, "layers"):
+       # handle folders
+       expandLayers(layer.layers)
+     else:
+      # resize layer to full image size
+      pdb.gimp_layer_resize_to_image_size(layer)
+
+def exportImagesLayers():
+  for image in gimp.image_list():
+    expandLayers(image.layers);
+    folderName = image.filename[:-4]
+    pdb.plug_in_export_layers(image, ".png", folderName, "", 0)
+
+exportImagesLayers()
