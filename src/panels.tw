@@ -1,0 +1,25 @@
+:: Start
+<%$(function(){
+  story.show("1#AXp1");
+})%>
+
+:: StoryTitle
+Hello World
+
+:: StoryDescription
+A comic about greetings, and a world addressed.
+
+:: 1#AXp1 [panel replace]
+  p.art.path("1/AXp1/")
+
+  p.art.assets(
+    ["art", "art.png"]
+  )
+
+  p.art.layers("art")
+
+  p.step.create({
+    a: "art", l: "art",
+  })
+
+  p.destination.to(`1#AXp1`)

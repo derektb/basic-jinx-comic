@@ -1,0 +1,25 @@
+{
+  "name": "basic-jinx",
+  "version": "0.0.1",
+  "description": "A basic template for a Jinx comic built with CLI tools",
+  "scripts": {
+    "build-comic": "tweego/tweego src -f jinx -o dist/index.html",
+    "build-art": "copyfiles art/**/*.png art/**/*.jpg art/**/*.gif dist",
+    "build": "npm run build-comic && npm run build-art",
+    "build-watch": "yarn watch -p 'src/**/**' -p 'art/**/*.png' -p 'art/**/*.jpg' -c 'yarn build'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derektb/basic-jinx-comic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "copyfiles": "^2.3.0",
+    "watch-cli": "^0.2.3"
+  },
+  "bugs": {
+    "url": "https://github.com/derektb/basic-jinx-comic/issues"
+  },
+  "homepage": "https://github.com/derektb/basic-jinx-comic#readme"
+}
