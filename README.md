@@ -8,7 +8,7 @@ This is a basic template for making a Jinx comic, based on best practices I've d
 
 ## Building Comics
 
-The comic's data are packaged from `/src` into a single `dist/index.html` file by [Tweego](https://www.motoslave.net/tweego/), a command-line utility for building Twine stories from files.
+The comic's data are packaged from `/src` into a single `/dist/index.html` file by [Tweego](https://www.motoslave.net/tweego/), a command-line utility for building Twine stories from files.
 
 The build commands are:
 
@@ -60,3 +60,9 @@ Upon running `build-art`, only valid files in `/art` will be copied into `/dist/
 The basic valid filetypes are JPEGs, PNGs, and GIFs; if you have other filetypes you want to be considered valid in your comic, add them to the `build-art` command.
 
 Keep in mind that `/dist` is not cleaned of previous builds, so if you're renaming or restructuring your art assets, they'll still be in there if you don't clean house every once in a while.
+
+### Src
+
+Tweego will build `/dist/index.html` from everything in the `/src` directory.
+
+One thing to keep in mind: Tweego compiles scripts and styles from files in alphabetical order.  Twine will run all user scripts compiled in this way at runtime, in order.  This is why `_setup.js` is prefixed with an underscore; to make sure it gets run first.  You may want to set up naming or numbering conventions if you have files you need compiled in a specific order.
