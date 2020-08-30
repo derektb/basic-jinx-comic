@@ -32,6 +32,16 @@ The comic will fail to build the first time; this is by design.  Twine stories a
 
 Paste it into `panels.tw`, or wherever you're keeping your required StoryTitle and StoryDescription passages.
 
+### Tweego Issues
+
+Sometimes I encounter issues with this Tweego setup the first time I use the repo, largely because of permissions issues in running local Tweego not in its own directory.  If this happens, try:
+
+```
+chmod +x ./tweego/tweego
+```
+
+MacOS will likely block the script as from an unverified developer, so you'll need to go allow it in Security.  Things should be good to go after that.
+
 ## File Structure
 
 This template uses the following file structure:
