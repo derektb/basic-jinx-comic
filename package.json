@@ -1,6 +1,6 @@
 {
   "name": "basic-jinx",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A basic template for a Jinx comic built with CLI tools",
   "scripts": {
     "build-comic": "tweego/tweego src -f jinx -o dist/index.html",
